@@ -73,14 +73,15 @@ For now there is only one method available:
 ## Updates
 
 **v1.2** ::: Dec 23, 2024 by dirkintelligence
-Updated:
-- The logic has been adjusted slightly:
+
+The logic has been adjusted slightly:
 - If minimum length (default 10) is not reached, score remains below 3
 - Special characters also increase the scoring
 - Score < 3: Password insecure, should not be accepted
 - Score 3 ok
 - Score 4 great
 - Minimal protection against common phrases, e.g. test123456
+
 Added:
 - PHP and PYTHON function to evaluate the password using the same logic.
 - JavaScript is therefore used for visual preparation, the security check is done in php or python
