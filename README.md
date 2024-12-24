@@ -2,12 +2,14 @@
 
 Is a simple JS plugin for adding strength meter to password input. This plugin checks password input to meet the following requirements:
 
- 1. Password has at least one lowercase alfabetic character.
- 2. Password has at least one uppercase alfabetic character.
- 3. Password has at least one numeric character.
- 4. Password length has to be greater than 8 characters.
-
-You can find a demo [here](https://pascualmj.github.io/pswmeter/ "demo here"). It's usage is straightforward:
+ * Password length has to be greater than 10 characters
+ * 3 out of 4 of the following conditions must be met
+   * Password has at least one lowercase alphabetic character [a-z]
+   * Password has at least one uppercase alphabetic character [A-Z]
+   * Password has at least one numeric character [0-9]
+   * Password has at least one special character [^a-zA-Z0-9]
+ 
+You can find a demo in the folder "docs"
 
 **HTML**
 ```html
@@ -40,10 +42,10 @@ Customize the **pswmeter** by adding more properties inside the function's argum
 | height | 4 | Number | No | - |
 | borderRadius | 2 | Number | No | - |
 | pswMinLength | 8 | Number | No | - |
-| colorScore1 | #ff7700 | String | No | Hex, RGB or named color values. For example: '#000', 'rgb(0,0,0)' or 'black' |
-| colorScore2 | #ffff00 | String | No | Hex, RGB or named color values. For example: '#000', 'rgb(0,0,0)' or 'black' |
-| colorScore3 | #aeff00 | String | No | Hex, RGB or named color values. For example: '#000', 'rgb(0,0,0)' or 'black' |
-| colorScore4 | #00ff00 | String | No | Hex, RGB or named color values. For example: '#000', 'rgb(0,0,0)' or 'black' |
+| colorScore1 | #ff0000 | String | No | Hex, RGB or named color values. For example: '#000', 'rgb(0,0,0)' or 'black' |
+| colorScore2 | #ff8800 | String | No | Hex, RGB or named color values. For example: '#000', 'rgb(0,0,0)' or 'black' |
+| colorScore3 | #44ff44 | String | No | Hex, RGB or named color values. For example: '#000', 'rgb(0,0,0)' or 'black' |
+| colorScore4 | #229922 | String | No | Hex, RGB or named color values. For example: '#000', 'rgb(0,0,0)' or 'black' |
 | showMessage | false | Boolean | No | By default this functionality is disabled, if you want to show messages you have to set this property to `true` |
 | messageContainer | - | String | No | If you set `showMessage` to `true` **you must** indicate the ID selector for the container that will show messages. |
 | messagesList | ['No data', 'Too simple', 'Simple', 'Thats OK', 'Great password!'] | Array | No | The first 5 items inside this array will override the default values in order. The first item is shown when the password's score is equal to 0, the second item is shown when the password's score is equal to 1, and so on. |
@@ -69,6 +71,15 @@ For now there is only one method available:
 | getScore | `myPassMeter.getScore()` | `0`, `1`, `2`, `3` or `4` | When called, this method returns a Number with the current score of the selected password field. |
 
 ## Updates
+
+**v1.2** ::: Dec 23, 2024 by dirkintelligence
+- Updated: colorcode and labels
+- Updated: score 3 can be accepted, score lower than 3 should be diclined
+- Updated: minimum length is now 10 characters and is mandatory to reach score 3
+- Updated docs folder and READMY.md file
+- Added: minimal check for most common password phrases (10 characters) e.g. test123456
+- Added: PHP function in folder php, scoring with same conditions
+- Added: Phyton function in folder phyton, scoring with same conditions
 
 **v1.1** ::: Aug 23, 2019
 - Added: custom event dispatching on updateScore function.
